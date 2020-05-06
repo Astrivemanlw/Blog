@@ -24,13 +24,13 @@ username:admin   <br>
 password:admin123 <br>
 
 # 项目展示
-评论列表
-![comments.png] <br>(https://github.com/Astrivemanlw/Blog/blob/master/comments.png)  <br>
-文章编辑
-![edit_post.png] <br>(https://github.com/Astrivemanlw/Blog/blob/master/edit_post.png) <br>
-主页
-![home.png]<br>(https://github.com/Astrivemanlw/Blog/blob/master/home.png) <br>
-登陆界面
-![login.png]<br>(https://github.com/Astrivemanlw/Blog/blob/master/login.png) <br>
-文章管理
-![post_manage.png]<br>(https://github.com/Astrivemanlw/Blog/blob/master/post_manage.png) <br>
+评论列表<br>
+![comments.png](https://github.com/Astrivemanlw/Blog/blob/master/comments.png)  <br>
+文章编辑<br>
+![edit_post.png](https://github.com/Astrivemanlw/Blog/blob/master/edit_post.png) <br>
+主页<br>
+![home.png](https://github.com/Astrivemanlw/Blog/blob/master/home.png) <br>
+登陆界面<br>
+![login.png](https://github.com/Astrivemanlw/Blog/blob/master/login.png) <br>
+文章管理<br>
+![post_manage.png](https://github.com/Astrivemanlw/Blog/blob/master/post_manage.png) <br>
