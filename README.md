@@ -10,8 +10,13 @@ export PATH=$PYTHONPATH:$PATH <br>
 # nginx 安装
 sudo apt-get install nginx
 
+# 依赖安装(虚拟环境pip)
+
+pip install -r requirements.txt
+
 # nginx 配置文件
 touch /etc/nginx/site_enabled/aweblog.conf
+
 # 生成虚拟数据
 flask gen-fake-data --cn 10
 # 启停脚本
@@ -35,7 +40,7 @@ password:admin123 <br>
 文章管理<br>
 ![post_manage.png](https://github.com/Astrivemanlw/Blog/blob/master/post_manage.png) <br>
 
-#github图片访问过慢或报错解决办法:本机hosts添加如下地址
+github图片访问过慢或报错解决办法:配置本机hosts
 
 ```
 # 访问https://www.ipaddress.com  根据域名获取ip地址
