@@ -31,7 +31,7 @@ def delete_post():
     return redirect_back()
 
 
-@manage_app.route('/edit_post', methods=['GET'])
+@manage_app.route('/edit_post', methods=['GET','POST'])
 @login_required
 def edit_post():
     post_id = request.args.get('post_id')
