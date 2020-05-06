@@ -6,7 +6,7 @@
 环境:Ubuntu18.04  pycharm 2018.1.2 <br>
 框架语言: flask1.1.2+bootstrap4+python3.7+nginx1.14+gunicorn <br>
 功能:
-1 游客用户只能评论文章以及点赞/踩 <br>
+1 游客用户只能查看文章后评论以及点赞/踩 <br>
 2 admin用户 评论回复,删除,修改,点赞/踩;文章发布,修改,删除 <br>
 3 文章,评论分页<br>
 4 admin用户登录认证<br>
@@ -27,7 +27,7 @@ touch /etc/nginx/site_enabled/aweblog.conf
 
 ### 生成虚拟数据(虚拟环境下执行)
 flask gen-fake-data --cn 10
-# 启停脚本
+###  启停脚本
 cd Flask_bird/bin <br>
 停: stop.sh <br>
 启: start.sh <br>
