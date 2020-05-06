@@ -1,34 +1,34 @@
-# Blog 个人博客系统
+### Blog 个人博客系统
 环境:Ubuntu18.04  pycharm 2018.1.2 <br>
 框架语言: flask1.1.2+bootstrap4+python3.7+nginx1.14+gunicorn <br>
 
-# 环境变量
+### 环境变量
 vi ~/.bashrc <br> 
 export PYTHONPATH="your project root path" <br>
 export PATH=$PYTHONPATH:$PATH <br>
 
-# nginx 安装
+### nginx 安装
 sudo apt-get install nginx
 
-# 依赖安装(虚拟环境pip,建议使用pycharm)
+### 依赖安装(虚拟环境pip,建议使用pycharm)
 
 pip install -r requirements.txt
 
-# nginx 配置文件
+### nginx 配置文件
 touch /etc/nginx/site_enabled/aweblog.conf
 
-# 生成虚拟数据(虚拟环境下执行)
+### 生成虚拟数据(虚拟环境下执行)
 flask gen-fake-data --cn 10
 # 启停脚本
 cd Flask_bird/bin <br>
 停: stop.sh <br>
 启: start.sh <br>
 
-# admin 账号
+### admin 账号
 username:admin   <br>
 password:admin123 <br>
 
-# 项目展示
+### 项目展示
 评论列表<br>
 ![comments.png](https://github.com/Astrivemanlw/Blog/blob/master/comments.png)  <br>
 文章编辑<br>
@@ -40,7 +40,7 @@ password:admin123 <br>
 文章管理<br>
 ![post_manage.png](https://github.com/Astrivemanlw/Blog/blob/master/post_manage.png) <br>
 
-github图片访问过慢或报错解决办法:配置本机hosts
+### github图片访问过慢或报错解决办法:配置本机hosts
 
 ```
 # 访问https://www.ipaddress.com  根据域名获取ip地址
