@@ -35,7 +35,7 @@ password:admin123 <br>
 文章管理<br>
 ![post_manage.png](https://github.com/Astrivemanlw/Blog/blob/master/post_manage.png) <br>
 
-#github图片访问过慢或报错解决办法
+#github图片访问过慢或报错解决办法:本机hosts添加如下地址
 
 ```
 # 访问https://www.ipaddress.com  根据域名获取ip地址
