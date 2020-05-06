@@ -37,10 +37,11 @@ password:admin123 <br>
 
 #github图片访问过慢或报错解决办法
 
-本机hosts添加
 ```
-#GitHub Start
-192.30.253.112    github.com
+# 访问https://www.ipaddress.com  根据域名获取ip地址
+140.82.113.3	github.com
+199.232.5.194	github.global.ssl.fastly.net
+
 192.30.253.119    gist.github.com
 151.101.184.133    assets-cdn.github.com
 151.101.184.133    raw.githubusercontent.com
