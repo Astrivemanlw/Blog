@@ -1,0 +1,23 @@
+<div class="blog-sidebar">
+    <h4 class="sidebar-title"><i class="fa fa-comments"></i> 最近评论</h4>
+    <hr style="margin-bottom: 5px;">
+    <ul class="sidebar-list">
+        {% for com in recent_comments %}
+
+            <div>
+                <a href="/post_detail?id={{ com[2] }}">
+
+                    <h5 class="blog-title">{{ com[0] }}</h5>
+                </a>
+                <a style="color:#555" href="/post_detail?id={{ com[2] }}">
+                    {% if com[1]|length <50 %}
+                        <p>{{ com[1] }}</p>
+                    {% else %}
+                        <p>{{ com[1][:50] }}...</p>
+                    {% endif %}
+                </a>
+
+            </div>
+        {% endfor %}
+    </ul>
+</div>

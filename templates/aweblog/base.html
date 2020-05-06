@@ -1,0 +1,93 @@
+{% from 'aweblog/macro/pagination.html' import render_pagination %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>We Awesome Blog</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="text/css">
+    <link href="{{ url_for('static',filename="css/bootstrap.min.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename="css/font-awesome.min.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename="css/we.css") }}" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+</head>
+
+<body data-spy="scroll">
+
+<nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav" style="margin-left:95px">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('post.index') }}">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('post.index') }}">About</a>
+        </li>
+        {% if current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('manage.index') }}">Manage</a>
+            </li>
+            <li class="nav-item">
+
+                <a class="nav-link" href="{{ url_for('auth.logout',next=request.full_path) }} ">logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.login') }}">Admin_login</a>
+            </li>
+        {% endif %}
+
+    </ul>
+</nav>
+{% block main_body %}
+{% endblock %}
+<hr>
+<section id="follow-us">
+    <div class="container">
+        <div class="text-center height-contact-element">
+            <h4>Fork me on Github</h4>
+        </div>
+        <div class="text-center height-contact-element">
+            <ul class="list-unstyled list-inline list-social-icons">
+                <li><a href="#"><i class="fa fa-github-square social-icons"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <div class="row myfooter">
+            <div class="col-sm-6">
+                <div class="pull-left">
+                    © Copyright lw 2020| <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% block scripts %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/we.js') }}"></script>
+    {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
+    {{ moment.locale(auto_detect=True) }}
+    <script> let csrf_token_val = "{{csrf_token()}}"; </script>
+
+{% endblock %}
+</body>
+</html>

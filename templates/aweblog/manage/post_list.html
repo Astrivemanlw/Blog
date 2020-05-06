@@ -1,0 +1,59 @@
+{% extends 'aweblog/base.html' %}
+{% block main_body %}
+
+    <div class="container">
+        <br/>
+
+        <h5>文章列表
+            <small class="float-right" style="margin-right:75px">
+                <a class="btn btn-primary btn-sm" href="{{ url_for('.new_post') }}">新创建</a>
+            </small>
+        </h5>
+        <div class="table-responsive table-hover">
+            <table class="table ">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>标题</th>
+                    <th>内容</th>
+                    <th>发表时间</th>
+                    <th>目录</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.title }}</td>
+                        <td><a>{{ post.content|truncate(length=30)|safe }}...</a></td>
+                        <td>{{ (post.timestamp+datetime.timedelta(hours=8)).strftime('%Y-%m-%d %H:%m:%S') }}</td>
+                        <td>{{ post.catalog }}</td>
+                        <td>
+                            <form class="inline" method="post"
+                                  action="{{ url_for('.delete_post', post_id=post.id, next=request.full_path) }}">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('确定删除吗?');">删除
+                                </button>
+                                <a class="btn btn-primary btn-sm"
+                                   href="{{ url_for('.edit_post',post_id=post.id) }}">编辑</a>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center">
+            {% if pagination %}
+                {% if pagination.pages>1 %}
+                    {{ render_pagination(pagination) }}
+                {% endif %}
+
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

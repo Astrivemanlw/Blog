@@ -1,0 +1,17 @@
+<div class="blog-sidebar">
+    <h4 class="sidebar-title"><i class="fa fa-align-left"></i> 最新文章</h4>
+    <hr style="margin-bottom: 5px;">
+    <hr style="margin-bottom: 5px;">
+    {% for p in recent_posts %}
+
+        <div class="media">
+            <div class="media-body">
+
+                <a href="/post_detail?id={{ p[2] }}"><h4 class="media-heading">{{ p[0] }}</h4></a>
+                <a style="color:#555" href="/post_detail?id={{ p[2] }}">{{ p[1]|truncate(length=40)|safe|striptags }}</a>
+            </div>
+
+        </div>
+    {% endfor %}
+
+</div>

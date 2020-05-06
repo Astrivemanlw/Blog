@@ -1,0 +1,38 @@
+{% from 'aweblog/macro/form.html' import render_form %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Login</title>
+    <link href="{{ url_for('static',filename="css/bootstrap.min.css") }}" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container h-100" style="margin-top:150px">
+
+    <div class="row h-100 page-header justify-content-center align-items-center">
+        <h1 class="text-primary">Log in</h1>
+    </div>
+    {% for message in get_flashed_messages() %}
+        <div style="margin-left:380px">
+            <div class="alert alert-info" style="width:350px;height:50px;">
+                <!--&times 代表叉叉  &uarr代表向上箭头-->
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+
+
+    <div class="row h-100 justify-content-center align-items-center">
+        {{ render_form(form, extra_classes='col-4') }}
+
+    </div>
+</div>
+
+{#data-dismiss组件依赖#}
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'aweblog/post/base.html' %}
+{% block post %}
+    {% if posts %}
+        {% for post in posts %}
+
+            <!-- First Blog Post -->
+            <div class="row blogu">
+                <div class="col-sm-12 col-md-12">
+                    <h2 class="blog-title">
+                        <a href="/post_detail?id={{ post.id }}">{{ post.title }}</a>
+                    </h2>
+                    <span style="margin-right:30px" class="float-right">阅读:{{ post.read_count }}</span>
+
+                    <p><i class="fa fa-calendar-o"></i> <span data-toggle="tooltip" data-placement="top"
+                                                              data-timestamp="{{ post.timestamp.strftime('%Y-%m-%dT%H:%M:%SZ') }}"
+                                                              data-delay="500">
+                            {{ moment(post.timestamp).fromNow(refresh=True) }}
+                        </span>
+                        <span class="comments-padding"></span>
+
+                    </p>
+                    <br/>
+                    <p id={{ post.id }}><a style="color:#555" href="/post_detail?id={{ post.id }}">
+                        {{ post.content|truncate|safe }}<span style="color:#007bff">...阅读全文</span>
+                    </a></p>
+
+
+                    <button style="border:none; background-color: transparent;outline: none;"
+                            onclick="like_change(this)">
+                        <i id="like" class="fa fa-thumbs-o-up">&nbsp;<span>{{ post.love_count }}</span>
+                        </i>
+                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button style="border:none; background-color: transparent;outline: none;"
+                            onclick="not_like_change(this)">
+                        <i id="not_like" class="fa fa-thumbs-o-down"></i>
+
+                    </button>
+                    <span class="comments-padding"></span>
+                    <i class="fa fa-comment"></i> <a style="color:#555"
+                                                     href="/post_detail?id={{ post.id }}">{{ post.comment_count }}条评论</a>
+
+                    <hr>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="text-center">
+        {% if pagination %}
+            {% if pagination.pages>1 %}
+                {{ render_pagination(pagination) }}
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+{% endblock %}

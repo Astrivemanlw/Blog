@@ -1,0 +1,109 @@
+{% extends 'aweblog/post/base.html' %}
+{% from 'aweblog/macro/form.html' import render_form %}
+
+{% block post %}
+    {% if post_detail %}
+        <div class="row blogu">
+            <div class="col-sm-12 col-md-12">
+                <h2 class="blog-title">
+                    <a class="post_detail_block" href="#">{{ post_detail.title }}</a>
+                </h2>
+                <span style="margin-right:30px" class="float-right">阅读:{{ post_detail.read_count }}</span>
+
+                <p><i class="fa fa-calendar-o"></i> <span data-toggle="tooltip" data-placement="top"
+                                                          data-timestamp="{{ post_detail.timestamp.strftime('%Y-%m-%dT%H:%M:%SZ') }}"
+                                                          data-delay="500">
+                            {{ moment(post_detail.timestamp).fromNow(refresh=True) }}
+                        </span>
+                </p>
+                <br/>
+                <p>{{ post_detail.content|safe }}</p>
+            </div>
+        </div>
+        <hr>
+        <div>
+        <i class="fa fa-comment">{{ post_detail.comment_count }} 条评论</i>
+        <small class="float-right"><button style="margin-right:30px" class="btn btn-primary btn-sm" onclick="javascript:history.back(-1);">返回</button></small>
+        </div>
+        <br/>
+        <br/>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-info">
+                <!--&times 代表叉叉  &uarr代表向上箭头-->
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% if comments %}
+            {% for obj in comments %}
+
+                <div class="list-group-item list-group-item-action flex-column" id={{ obj.id }}>
+                    <small class="float-right">
+                        {% if current_user.is_authenticated %}
+                            <button id="reply" class="btn btn-danger btn-sm" onclick="delete_comment(this)">
+                                <i class="fa fa-minus-square"> 删除</i>
+                            </button>
+                        {% endif %}
+                    </small>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">{{ obj.author }}
+                        </h6>
+                        <small data-toggle="tooltip" data-placement="top"
+                               data-timestamp="{{ obj.timestamp.strftime('%Y-%m-%dT%H:%M:%SZ') }}"
+                               data-delay="500">
+                            {{ moment(obj.timestamp).fromNow(refresh=True) }}
+                        </small>
+
+                    </div>
+                    <p class="mb-1">{{ obj.content }}</p>
+                    <button style="border:none; background-color: transparent;outline: none;"
+                            onclick="like_change(this)">
+                        <i id="like" class="fa fa-thumbs-o-up">
+                            <span>{{ obj.love_count }}</span>
+                        </i>
+                    </button>
+                    <span class="comments-padding"></span>
+                    <button style="border:none; background-color: transparent;outline: none;"
+                            onclick="not_like_change(this)">
+                        <i id="not_like" class="fa fa-thumbs-o-down"></i>
+                    </button>
+                    <span class="comments-padding"></span>
+                    <small class="float-right">
+                        {% if not reply_cmt_rel[obj] %}
+                            {% if current_user.is_authenticated %}
+                                <button value="reply" id="reply" class="btn btn-primary btn-sm" onclick="reply(this)">
+                                    <i class="fa fa-reply"></i>&nbsp;&nbsp;回复
+                                </button>
+                            {% endif %}
+                        {% else %}
+                            <button id="look_reply" class="btn btn-primary btn-sm" onclick="look_reply(this)">
+                                <i class="fa fa-eye"> </i>&nbsp;&nbsp;查看回复
+                            </button>
+                        {% endif %}
+                    </small>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="tip"><h5>No comments.</h5></div>
+        {% endif %}
+        <div class="comment-form">
+            {{ render_form(comment_form,action=request.full_path) }}
+
+        </div>
+
+
+    {% endif %}
+    <script>let current_user_is_admin = "{{ current_user.is_authenticated }}" </script>
+
+    <div class="text-center">
+        {% if pagination %}
+            {% if pagination.pages>1 %}
+                {{ render_pagination(pagination) }}
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}

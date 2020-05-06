@@ -1,0 +1,33 @@
+{% extends 'aweblog/base.html' %}
+
+{% block main_body %}
+    <!-- Page Content -->
+    <section class="container blog">
+        <div class="row">
+            <!-- Post Column -->
+            <div class="col-md-8">
+                <h1 class="page-header sidebar-title">
+                    My Blog
+                </h1>
+                <hr>
+                {% block post %}
+                {% endblock %}
+
+            </div>
+            <!-- Post Sidebar Column -->
+            <aside class="col-md-4 sidebar-padding">
+                {% include 'aweblog/post/search.html' %}
+
+                <!-- Post Categories -->
+                {% include 'aweblog/post/catalog.html' %}
+
+                <!-- Recent Posts -->
+                {% include 'aweblog/post/recent_post.html' %}
+
+                <!-- Recent Comments -->
+                {% include 'aweblog/post/recent_comments.html' %}
+
+            </aside>
+        </div>
+    </section>
+{% endblock %}
