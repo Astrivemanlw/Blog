@@ -22,3 +22,15 @@ cd Flask_bird/bin <br>
 # admin 账号
 username:admin   <br>
 password:admin123 <br>
+
+# 项目展示
+评论列表
+![comments.png](https://github.com/Astrivemanlw/Blog/blob/master/comments.png)  <br>
+文章编辑
+![edit_post.png](https://github.com/Astrivemanlw/Blog/blob/master/edit_post.png) <br>
+主页
+![home.png](https://github.com/Astrivemanlw/Blog/blob/master/home.png) <br>
+登陆界面
+![login.png](https://github.com/Astrivemanlw/Blog/blob/master/login.png) <br>
+文章管理
+![post_manage.png](https://github.com/Astrivemanlw/Blog/blob/master/post_manage.png) <br>
