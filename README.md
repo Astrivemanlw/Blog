@@ -1,7 +1,15 @@
-### Blog 个人博客系统
+### 背景
+学习flask,进一步熟悉py3.7, <br>
+可以整理记录一些日常技术笔记 <br>
+### 个人博客系统
+
 环境:Ubuntu18.04  pycharm 2018.1.2 <br>
 框架语言: flask1.1.2+bootstrap4+python3.7+nginx1.14+gunicorn <br>
-
+功能:
+1 游客用户只能评论文章以及点赞/踩
+2 admin用户 评论回复,删除,修改,点赞/踩;文章发布,修改,删除
+3 文章,评论分页
+4 admin用户登录认证
 ### 环境变量
 vi ~/.bashrc <br> 
 export PYTHONPATH="your project root path" <br>
