@@ -18,7 +18,7 @@ export PATH=$PYTHONPATH:$PATH <br>
 ### nginx 安装
 sudo apt-get install nginx
 
-### 依赖安装(虚拟环境pip,建议使用pycharm)
+### 依赖安装(虚拟环境pip)
 
 pip install -r requirements.txt
 
