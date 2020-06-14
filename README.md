@@ -47,26 +47,3 @@ password:admin123 <br>
 ![login.png](https://github.com/Astrivemanlw/Blog/blob/master/login.png) <br>
 文章管理<br>
 ![post_manage.png](https://github.com/Astrivemanlw/Blog/blob/master/post_manage.png) <br>
-
-### github图片访问过慢或报错解决办法:配置本机hosts
-
-```
-# 访问https://www.ipaddress.com  根据域名获取ip地址
-140.82.113.3	github.com
-199.232.5.194	github.global.ssl.fastly.net
-192.30.253.119    gist.github.com
-151.101.184.133    assets-cdn.github.com
-151.101.184.133    raw.githubusercontent.com
-151.101.184.133    gist.githubusercontent.com
-151.101.184.133    cloud.githubusercontent.com
-151.101.184.133    camo.githubusercontent.com
-151.101.184.133    avatars0.githubusercontent.com
-151.101.184.133    avatars1.githubusercontent.com
-151.101.184.133    avatars2.githubusercontent.com
-151.101.184.133    avatars3.githubusercontent.com
-151.101.184.133    avatars4.githubusercontent.com
-151.101.184.133    avatars5.githubusercontent.com
-151.101.184.133    avatars6.githubusercontent.com
-151.101.184.133    avatars7.githubusercontent.com
-151.101.184.133    avatars8.githubusercontent.com
-```
